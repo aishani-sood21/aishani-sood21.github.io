@@ -14,11 +14,20 @@ const { pageTitle } = Astro.props;
   </head>
   <body>
     <Header />
-    <h1>{pageTitle}</h1>
-    <slot />
-    <Footer />
-    <script>
-      import "../scripts/menu.js";
-    </script>
+    <div class="background-wrapper">
+      <div class="background-overlay"></div>
+
+      <!-- Centered name with motion -->
+      <div class="centered-name">{pageTitle}</div>
+
+      <!-- Full site content -->
+      <div class="page-content">
+        
+        <main class="content-area">
+          <slot />
+        </main>
+        <Footer />
+      </div>
+    </div>
   </body>
 </html>

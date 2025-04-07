@@ -1,7 +1,49 @@
 /* Reset & base styles */
-* {
-  box-sizing: border-box;
+* 
+
+.background-wrapper {
+  background: url('/images/Background4.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white; /* Light text for readability */
 }
+
+.background-overlay {
+  background-color: rgba(0, 0, 0, 0.4); /* black with 50% opacity */
+  /*backdrop-filter: blur(2px); /* optional subtle blur for a glass feel */
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.content-area {
+  flex: 1;
+  padding: 2rem;
+  backdrop-filter: brightness(1.1) contrast(0.95); /* Optional: subtle overlay effect */
+}
+
+.centered-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem; /* You can increase if you want it even larger */
+  font-weight: 700;
+  color: white;
+  z-index: 2;
+  text-align: center;
+  font-family: 'Comic Sans MS', 'Chalkboard SE', cursive; /* comic style */
+  animation: fadeInZoom 1.5s ease-out forwards;
+}
+
+/* 
+{
+  box-sizing: border-box;
+} */
 
 html {
   background-color: #f1f5f9;
@@ -79,7 +121,7 @@ h1 {
 }
 
 /* Footer styles (optional setup) */
-.site-footer {
+/* .site-footer {
   width: 100%;
   background-color: #0b0b0b;
   color: white;
@@ -87,4 +129,56 @@ h1 {
   padding: 1rem 2rem;
   font-family: serif;
   border-top: 1px solid #333;
+} */
+
+/* .site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0b0b0b;
+  color: white;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-family: serif;
+  border-top: 1px solid #333;
+  z-index: 999;
+} */
+
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0b0b0b;
+  color: white;
+  font-family: serif;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #333;
+  z-index: 999;
+  box-sizing: border-box;
+  flex-wrap: wrap;
 }
+
+.site-footer a {
+  text-decoration: none;
+  color: #ff9776;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-left {
+  font-size: 1rem;
+}
+
+.footer-right {
+  display: flex;
+  gap: 1rem;
+}
+
