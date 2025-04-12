@@ -1,7 +1,11 @@
 ---
 import BaseLayout from './layouts/BaseLayout.astro';
-const pageTitle = "AISHANI SOOD";
 ---
-<BaseLayout pageTitle={pageTitle}>
-  <!-- <h2>My awesome blog subtitle</h2> -->
+<BaseLayout page="Home">
+  <div class="hero-text-container">
+    <h1 id="typewriter"></h1>
+  </div>
+
+
+  <script src="/scripts/typing.js" defer></script>
 </BaseLayout>

@@ -1,7 +1,31 @@
 ---
 ---
-<div class="nav-links">
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
-</div>
+<div class="nav-container">
+    <div class="hamburger" id="hamburger">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+  
+    <nav class="nav-links" id="nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <!-- <a href="/blog/">Blog</a> -->
+     
+      <a href="/gallery/">Gallery</a>
+      <a href="/contact/">Contact</a>
+      
+    </nav>
+  </div>
+  
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+  
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    });
+  </script>
+  

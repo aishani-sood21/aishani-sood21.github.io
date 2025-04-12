@@ -1,59 +1,132 @@
 ---
+import BaseLayout from './layouts/BaseLayout.astro';
 
-
-
-import BaseLayout from './layouts/BaseLayout.astro'
 const pageTitle = "About Me";
-
+const page = "About";
 
 const identity = {
-  firstName: "Aishani",
+  firstName: "Aishani Sood",
   country: "India",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
+  occupation: "BTech First-Year Student",
+  hobbies: ["dancing", "painting", "badminton"],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
-
+const skills = ["HTML", "CSS", "JavaScript", "Python", "Astro", "Figma"];
 
 const happy = true;
 const finished = false;
 const goal = 3;
 ---
 
+<BaseLayout page={page}>
+  <script src="/scripts/skills-animation.js" defer></script>
 
-   
-	<BaseLayout pageTitle={pageTitle}>
+  <section class="about-wrapper">
+    <div class="about-content">
+      <div class="about-text">
+        <h1>About Me</h1>
+        <p>
+          Hi! My name is {identity.firstName}, and I’m a {identity.occupation} at IIIT Hyderabad.
+          I completed my high school education from Carmel Convent School Chandigarh.
+          I love writing blogs, reading books, and simplifying complex problems. I also enjoy
+          {identity.hobbies[0]}, {identity.hobbies[1]}, and {identity.hobbies[2]} in my spare time.
+        </p>
+        <p>
+          My skills include {skills.slice(0, -1).join(', ')}, and {skills[skills.length - 1]}. I’m currently working
+          on mastering more backend and frontend tools and exploring new computer languages.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="/images/about-me.jpeg" alt="Aishani Sood portrait" />
+      </div>
+    </div>
+  </section>
 
-      
-        
-        
-        <h2>... and my new Astro site!</h2>
-      
-        <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-      
-        <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-        
+  <section class="skills-section">
+    <h2>My Technical Skills</h2>
+    <p>I like to craft beautiful and scalable solutions</p>
+  
+    <div class="skills-container">
+      <div class="skill">
+        <span class="skillName">HTML/CSS</span>
+        <div class="bar"><div class="progress" data-width="90%"></div></div>
+      </div>
+      <div class="skill">
+        <span class="skillName">Python</span>
+        <div class="bar"><div class="progress" data-width="80%"></div></div>
+      </div>
+      <div class="skill">
+        <span class="skillName">JavaScript</span>
+        <div class="bar"><div class="progress" data-width="75%"></div></div>
+      </div>
+      <div class="skill">
+        <span class="skillName">Figma</span>
+        <div class="bar"><div class="progress" data-width="70%"></div></div>
+      </div>
+      <div class="skill">
+        <span class="skillName">Astro</span>
+        <div class="bar"><div class="progress" data-width="60%"></div></div>
+      </div>
+      <div class="skill">
+        <span class="skillName">C/C++</span>
+        <div class="bar"><div class="progress" data-width="95%"></div></div>
+      </div>
+      <div class="skill">
+        <span class="skillName">Rust</span>
+        <div class="bar"><div class="progress" data-width="50%"></div></div>
+      </div>
+    </div>
+  </section>
 
-        <p>Here are a few facts about me:</p>
-<ul>
-  <li>My name is {identity.firstName}.</li>
-  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-  {identity.hobbies.length >= 2 &&
-    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-  }
-</ul>
-<p>My skills are:</p>
-<ul>
-  {skills.map((skill) => <li class="skill">{skill}</li>)}
-</ul>
 
 
-{happy && <p>I am happy to be learning Astro!</p>}
+  <section class="achievements-section hidden" id="achievements">
+    <h2>Achievements</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>🏆 JEE Mains</h3>
+          <p>Secured All India Rank 2637</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>🎨 Creative Arts</h3>
+          <p>Pursuing Visharad in Bharatnatyam</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>CBSE Boards</h3>
+          <p>Secured 95.4% in Class-12 CBSE Board Exams</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>🏸 State-Level Badminton</h3>
+          <p>Won Gold Medal in Girls U-17 Category.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>🌐 Personal Portfolio</h3>
+          <p>Designed and deployed my first website using Astro & GitHub Pages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 
-{finished && <p>I finished this tutorial!</p>}
+  <script src="/scripts/achievements.js" defer></script>
 
-{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-    
-  </BaseLayout>
+  
+  
+  
+
+  
+</BaseLayout>

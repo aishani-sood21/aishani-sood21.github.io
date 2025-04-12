@@ -1,0 +1,38 @@
+---
+import BaseLayout from './layouts/BaseLayout.astro';
+
+const page = "Gallery";
+
+const images = [
+  { src: "/images/Chd1.png", alt: "Open Hand Monument in Chandigarh" },
+  { src: "/images/Chd2.png", alt: "A Glimpse of the City Beautiful" },
+  { src: "/images/Chd3.png", alt: "Sukhna Lake" },
+  { src: "/images/CCS1.png", alt: "An Aerial View of my School" },
+  { src: "/images/CCS2.png", alt: "Primary Block of my School" },
+  { src: "/images/CCS3.png", alt: "School Auditorium" },
+  
+  
+];
+---
+
+<BaseLayout page={page}>
+  <script src="/scripts/gallery.js" defer></script>
+
+  <section class="gallery-page">
+    <h1>Gallery</h1>
+
+    <div class="gallery-grid">
+      {images.map((img) => (
+        <div class="gallery-item">
+          <img src={img.src} alt={img.alt} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <div class="lightbox hidden" id="lightbox">
+    <span id="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="Full view" />
+    <p id="lightbox-caption"></p> 
+  </div>
+</BaseLayout>

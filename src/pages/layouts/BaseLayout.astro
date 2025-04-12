@@ -2,27 +2,35 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-const { pageTitle } = Astro.props;
+
+const { pageTitle, page } = Astro.props;
+
+// Determine overlay class based on page type
+let overlayClass = '';
+if (page === 'Contact' || page === 'About' || page === 'Blog' || page==='Gallery') {
+  overlayClass = 'dark-overlay';
+} else if (page === 'home') {
+  overlayClass = 'light-overlay';
+}
 ---
-<html lang="en">
+<html lang="en" class={page}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <title>{page}</title>
   </head>
   <body>
     <Header />
     <div class="background-wrapper">
-      <div class="background-overlay"></div>
+      <div class={`background-overlay ${overlayClass}`}></div>
 
       <!-- Centered name with motion -->
       <div class="centered-name">{pageTitle}</div>
 
       <!-- Full site content -->
       <div class="page-content">
-        
         <main class="content-area">
           <slot />
         </main>
