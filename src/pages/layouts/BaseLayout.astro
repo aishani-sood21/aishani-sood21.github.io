@@ -7,7 +7,7 @@ const { pageTitle, page } = Astro.props;
 
 // Determine overlay class based on page type
 let overlayClass = '';
-if (page === 'Contact' || page === 'About' || page === 'Blog' || page==='Gallery') {
+if (page === 'Contact' || page === 'About' || page === 'Blog' || page==='Gallery' || page==='Text Analyzer') {
   overlayClass = 'dark-overlay';
 } else if (page === 'home') {
   overlayClass = 'light-overlay';
